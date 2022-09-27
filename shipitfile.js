@@ -34,13 +34,13 @@ module.exports = shipit => {
 
 	const install_package = path.join(
 		shipit.config.deployTo,
-		'shared',
+		`${shipit.releasePath}`,
 		'install_package.sh'
 	);
 
 	const install_service = path.join(
 		shipit.config.deployTo,
-		'shared',
+		`${shipit.releasePath}`,
 		'install_service.sh'
 	);
 
