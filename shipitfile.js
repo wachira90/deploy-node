@@ -29,7 +29,9 @@ module.exports = shipit => {
     const ecosystemFilePath = path.join(
         shipit.config.deployTo,
         'shared',
-        'ecosystem.config.js'
+        'ecosystem.config.js',
+        'install_package.sh',
+        'install_service.sh'
     );
 
     // Our listeners and tasks will go here
