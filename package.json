@@ -12,7 +12,7 @@
     "shipit-deploy": "^5.3.0",
     "shipit-shared": "^4.4.2"
   },
-  "keywords": ['deploy'],
+  "keywords": ["deploy", "auto deploy"],
   "author": "Wachira Duangdee",
   "license": "ISC"
 }
