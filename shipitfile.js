@@ -26,7 +26,7 @@ module.exports = shipit => {
 	})
 
 	shipit.blTask('pm2-server', async () => {
-		await shipit.remote('yarn start');
+		await shipit.remote('echo "$(pwd)"');
 	});
 
 
