@@ -46,7 +46,7 @@ module.exports = shipit => {
     
     // Our listeners and tasks will go here
     shipit.on('updated', async () => {
-        shipit.start('npm-install', 'copy-config');
+        shipit.start('npm-install', 'copy-config','copy-config2','copy-config3','permission-config');
     });
 
     shipit.on('published', async () => {
@@ -119,6 +119,17 @@ pm2 start ${shipit.releasePath}/server.js --env production --watch true --name $
     });
     
 //=======================    
+
+    shipit.blTask('permission-config', async () => {
+//         await shipit.remote(`echo "npm install cmd"`);
+//        shipit.remote(`cd ${shipit.releasePath} && npm install --production`);
+//        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
+        shipit.remote(`chmod +x install_package.sh`);
+        shipit.remote(`chmod +x install_service.sh`);
+//        shipit.remote(`cd ${shipit.releasePath} && bash yarn install`);
+    });
+    
+//=======================     
     
     shipit.blTask('npm-install', async () => {
 //         await shipit.remote(`echo "npm install cmd"`);
