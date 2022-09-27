@@ -2,6 +2,9 @@
   "name": "test-node",
   "version": "1.0.0",
   "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": "https://github.com/wachira90/test-node.git",
   "license": "MIT",
   "dependencies": {
