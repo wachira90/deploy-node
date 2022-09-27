@@ -6,9 +6,15 @@ module.exports = shipit => {
 
     shipit.initConfig({
         default: {
+            workspace: '/home/ubuntu/test-node',
             deployTo: '/home/ubuntu/test-node',
             repositoryUrl: 'https://github.com/wachira90/test-node.git',
+            ignores: ['.git', 'node_modules'],
             keepReleases: 5,
+            keepWorkspace: false, // should we remove workspace dir after deploy?
+            deleteOnRollback: false,
+//            key: '/path/to/key',
+            shallowClone: true,
             shared: {
                 overwrite: true,
                 dirs: ['node_modules']
