@@ -64,17 +64,19 @@ module.exports = shipit => {
         await shipit.copyToRemote('ecosystem.config.js', ecosystemFilePath);
     });
 
-//    shipit.blTask('npm-install', async () => {
+    shipit.blTask('npm-install', async () => {
+        await shipit.remote(`echo "npm install cmd"`);
 //        shipit.remote(`cd ${shipit.releasePath} && npm install --production`);
 //        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
 
 //        shipit.remote(`cd ${shipit.releasePath} && bash yarn install`);
-//    });
+    });
 
-//    shipit.blTask('pm2-server', async () => {
+    shipit.blTask('pm2-server', async () => {
+        await shipit.remote(`echo "pm2 server cmd"`);
 //         await shipit.remote(`pm2 delete -s ${appName} || :`);
         
 //        await shipit.remote(`bash pm2 delete -s ${appName} || :`);
 //        await shipit.remote(`bash pm2 start ${ecosystemFilePath} --env production --watch true`);
-//    });
+    });
 };
