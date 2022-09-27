@@ -16,7 +16,7 @@ module.exports = shipit => {
 
 	shipit.initConfig({
 		default: {
-			// workspace: '/home/ubuntu/test-node',
+			workspace: '/home/ubuntu/test-node',
 			deployTo: '/home/ubuntu/test-node',
 			repositoryUrl: 'https://github.com/wachira90/test-node.git',
 		},
@@ -26,7 +26,7 @@ module.exports = shipit => {
 	})
 
 	shipit.blTask('pm2-server', async () => {
-		await shipit.remote('bash yarn start');
+		await shipit.remote('yarn start');
 	});
 
 
