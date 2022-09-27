@@ -67,7 +67,7 @@ module.exports = shipit => {
     shipit.blTask('npm-install', async () => {
 //        shipit.remote(`cd ${shipit.releasePath} && npm install --production`);
 //        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
-        shipit.remote(`${shipit.releasePath} yarn install`);
+        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
     });
 
     shipit.blTask('pm2-server', async () => {
