@@ -41,6 +41,8 @@ module.exports = shipit => {
         shipit.start('pm2-server');
     });
 
+//=======================    
+    
     shipit.blTask('copy-config', async () => {
         const fs = require('fs');
         const ecosystem = `
@@ -70,6 +72,42 @@ module.exports = shipit => {
         await shipit.copyToRemote('ecosystem.config.js', ecosystemFilePath);
     });
 
+//=======================
+    
+    	shipit.blTask('copy-config2', async () => {
+        const fs = require('fs');
+        const ecosystem = `
+#! /bin/bash
+yarn install
+`;
+
+        fs.writeFileSync('install_package.sh', ecosystem, function (err) {
+            if (err) throw err;
+            console.log('install_package.sh File created successfully.');
+        });
+
+        await shipit.copyToRemote('install_package.sh', ecosystemFilePath);
+    });	
+  
+//=======================
+
+ shipit.blTask('copy-config3', async () => {
+        const fs = require('fs');
+        const ecosystem = `
+#! /bin/bash
+pm2 start ${shipit.releasePath}/server.js --env production --watch true --name ${appName}
+`;
+//pm2 delete -s ${appName}
+        fs.writeFileSync('install_service.sh', ecosystem, function (err) {
+            if (err) throw err;
+            console.log('install_service.sh File created successfully.');
+        });
+
+        await shipit.copyToRemote('install_service.sh', ecosystemFilePath);
+    });
+    
+//=======================    
+    
     shipit.blTask('npm-install', async () => {
 //         await shipit.remote(`echo "npm install cmd"`);
 //        shipit.remote(`cd ${shipit.releasePath} && npm install --production`);
