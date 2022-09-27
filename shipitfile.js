@@ -26,7 +26,7 @@ module.exports = shipit => {
 	})
 
 	shipit.blTask('pm2-server', async () => {
-		await shipit.remote(`cd /home/ubuntu/test-node/current/ && yarn install`);
+		await shipit.remote(`export`);
 	});
 
 
