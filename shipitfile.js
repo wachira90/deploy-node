@@ -42,7 +42,7 @@ module.exports = {
   apps: [
     {
       name: '${appName}',
-      script: '${shipit.releasePath}/hello.js',
+      script: '${shipit.releasePath}/server.js',
       watch: true,
       autorestart: true,
       restart_delay: 1000,
