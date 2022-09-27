@@ -10,7 +10,7 @@ module.exports = shipit => {
             deployTo: '/home/ubuntu/test-node',
             repositoryUrl: 'https://github.com/wachira90/test-node.git',
             ignores: ['.git', 'node_modules'],
-            keepReleases: 5,
+            keepReleases: 3,
             keepWorkspace: false, // should we remove workspace dir after deploy?
             deleteOnRollback: false,
 //            key: '/path/to/key',
