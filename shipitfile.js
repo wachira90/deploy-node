@@ -71,18 +71,20 @@ module.exports = shipit => {
     });
 
     shipit.blTask('npm-install', async () => {
-        await shipit.remote(`echo "npm install cmd"`);
+//         await shipit.remote(`echo "npm install cmd"`);
 //        shipit.remote(`cd ${shipit.releasePath} && npm install --production`);
 //        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
-
+        shipit.remote(`cd ${shipit.releasePath} && ./install_pkg.sh`);
 //        shipit.remote(`cd ${shipit.releasePath} && bash yarn install`);
     });
 
     shipit.blTask('pm2-server', async () => {
-        await shipit.remote(`echo ${ecosystemFilePath}`);
+//         await shipit.remote(`echo ${ecosystemFilePath}`);
 //         await shipit.remote(`pm2 delete -s ${appName} || :`);
         
 //        await shipit.remote(`pm2 delete -s ${appName} || :`);
 //        await shipit.remote(`pm2 start ${ecosystemFilePath} --env production --watch true`);
+        
+        await shipit.remote('./install_service.sh');
     });
 };
