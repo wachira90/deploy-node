@@ -38,23 +38,23 @@ module.exports = shipit => {
     shipit.blTask('copy-config', async () => {
         const fs = require('fs');
         const ecosystem = `
-module.exports = {
-  apps: [
-    {
-      name: '${appName}',
-      script: '${shipit.releasePath}/server.js',
-      watch: true,
-      autorestart: true,
-      restart_delay: 1000,
-      env: {
-        NODE_ENV: 'development'
-      },
-      env_production: {
-        NODE_ENV: 'production'
-      }
-    }
-  ]
-};`;
+            module.exports = {
+              apps: [
+                {
+                  name: '${appName}',
+                  script: '${shipit.releasePath}/server.js',
+                  watch: true,
+                  autorestart: true,
+                  restart_delay: 1000,
+                  env: {
+                    NODE_ENV: 'development'
+                  },
+                  env_production: {
+                    NODE_ENV: 'production'
+                  }
+                }
+              ]
+            };`;
 
         fs.writeFileSync('ecosystem.config.js', ecosystem, function (err) {
             if (err) throw err;
@@ -66,7 +66,8 @@ module.exports = {
 
     shipit.blTask('npm-install', async () => {
 //        shipit.remote(`cd ${shipit.releasePath} && npm install --production`);
-        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
+//        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
+        shipit.remote(`${shipit.releasePath} yarn install`);
     });
 
     shipit.blTask('pm2-server', async () => {
