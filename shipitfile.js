@@ -29,11 +29,21 @@ module.exports = shipit => {
     const ecosystemFilePath = path.join(
         shipit.config.deployTo,
         'shared',
-        'ecosystem.config.js',
-        'install_package.sh',
-        'install_service.sh'
+        'ecosystem.config.js'
+    );
+    
+    const install_package = path.join(
+        shipit.config.deployTo,
+        'shared',
+        'install_package.sh'
     );
 
+    const install_service = path.join(
+        shipit.config.deployTo,
+        'shared',
+        'install_service.sh'
+    );
+    
     // Our listeners and tasks will go here
     shipit.on('updated', async () => {
         shipit.start('npm-install', 'copy-config');
@@ -88,7 +98,7 @@ yarn install
             console.log('install_package.sh File created successfully.');
         });
 
-        await shipit.copyToRemote('install_package.sh', ecosystemFilePath);
+        await shipit.copyToRemote('install_package.sh', install_package);
     });	
   
 //=======================
@@ -105,7 +115,7 @@ pm2 start ${shipit.releasePath}/server.js --env production --watch true --name $
             console.log('install_service.sh File created successfully.');
         });
 
-        await shipit.copyToRemote('install_service.sh', ecosystemFilePath);
+        await shipit.copyToRemote('install_service.sh', install_service);
     });
     
 //=======================    
