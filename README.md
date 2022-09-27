@@ -20,3 +20,15 @@ v16.13.2
 1.22.19
 5.2.0
 ````
+
+
+## run on local (172.16.1.5 remote)
+````
+ssh-keygen -t rsa -b 4096 -N "" -f "$HOME"/.ssh/id_rsa
+
+ssh ubuntu@172.16.1.5 -p 22 "mkdir -p .ssh"
+
+cat .ssh/id_rsa.pub | ssh ubuntu@172.16.1.5 -p 22 'cat >> .ssh/authorized_keys'
+
+ssh ubuntu@172.16.1.5  -p 22 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+````
