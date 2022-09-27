@@ -124,7 +124,7 @@ pm2 start ${shipit.releasePath}/server.js --env production --watch true --name $
 //         await shipit.remote(`echo "npm install cmd"`);
 //        shipit.remote(`cd ${shipit.releasePath} && npm install --production`);
 //        shipit.remote(`cd ${shipit.releasePath} && yarn install`);
-        shipit.remote(`cd ${shipit.releasePath} && ./install_pkg.sh`);
+        shipit.remote(`cd ${shipit.releasePath} && ./install_package.sh`);
 //        shipit.remote(`cd ${shipit.releasePath} && bash yarn install`);
     });
 
