@@ -1,4 +1,5 @@
-# test-node
+# deploy node 
+
 test deploy node
 
 ## install
@@ -9,6 +10,10 @@ source .bashrc
 nvm ls-remote
 nvm install v16.13.2
 npm i -g yarn@1.22.18 && npm i -g pm2@5.2.0 && npm i -g nodemon@2.0.16
+npm i -g ts-node
+
+pm2 install typescript
+pm2 install ts-node
 
 sudo yum install rsync
 sudo apt install rsync
